@@ -47,7 +47,7 @@
                     </aside>
                 </section>
 
-                <section>
+                <section data-menu-title="Project 1: Adversarial Driving">
                     <h3>Adversarial Driving</h3>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;"> Attacking End-to-End Driving Models &nbsp; <a href="https://arxiv.org/abs/2103.09151"><i class="far fa-file-pdf"></i></a></p>
                     <div class="r-vstack">
@@ -55,7 +55,6 @@
                     </div>
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://github.com/wuhanstudio/adversarial-driving">Source Code</a></p>
                     <aside class="notes">
-                        Here's the research question. Is Deep Learning secure for IoT? Please be aware, we talk about deep learning security, rather than Cryptography. We attack deep neural networks.
                     </aside>
                 </section>
 
@@ -104,6 +103,13 @@
                         <p style="font-size: 20px; margin-top: 0;"> The NVIDIA End-to-End Driving Model</p>
                         <img src="images/overview.png" width="60%" class="fragment" alt="" />
                     </div>
+                    <aside class="notes">
+                        Researchers from NVIDIA even tested their end-to-end driving models on a real autonomous driving car.
+
+                        But are we ready to embrace end-to-end driving models in a safety-critical application? Proir research demonstrated image classification models that use deep neural networks are vulnerable to adversarial attack.</p> while the driving model is a regression model. In our research, we have demonstrated that it is possible to attack the end-to-end regressional driving model as well in real time.
+                </section>
+
+                    </aside>
                 </section>
 
                 <section>
@@ -195,7 +201,7 @@
                     <img src="images/driving-exp.png" alt="">
                 </section>
 
-                <section>
+                <section data-menu-title="Project 2: Adversarial Detection">
                     <h3>Adversarial Detection</h3>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;"> Attacking Object Detection in Real Time  &nbsp; <a href="https://arxiv.org/abs/2209.01962"><i class="far fa-file-pdf"></i></a></p>
                     <div class="r-vstack">
@@ -203,7 +209,6 @@
                     </div>
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://github.com/wuhanstudio/adversarial-detection">Source Code</a></p>
                     <aside class="notes">
-                        Here's the research question. Is Deep Learning secure for IoT? Please be aware, we talk about deep learning security, rather than Cryptography. We attack deep neural networks.
                     </aside>
                 </section>
 
@@ -274,7 +279,7 @@
                     </aside>
                 </section>
 
-                <section>
+                <section data-menu-title="Project 3: Adversarial Classification">
                     <h3>Adversarial Classification</h3>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;">Distributed Black-box Attacks against Image Classification &nbsp; <a href="https://arxiv.org/abs/2210.16371"><i class="far fa-file-pdf"></i></a></p>
                     <div class="r-vstack">
@@ -282,7 +287,53 @@
                     </div>
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://github.com/wuhanstudio/adversarial-classification">Source Code</a></p>
                     <aside class="notes">
-                        Here's the research question. Is Deep Learning secure for IoT? Please be aware, we talk about deep learning security, rather than Cryptography. We attack deep neural networks.
+                    </aside>
+                </section>
+
+                
+                <section>
+                    <span class="menu-title" style="display: none">DeepAPI</span>
+                    <h3>DeepAPI - The Cloud API we attack</h3>
+                    <p style="font-size: 26px;">We open-source our image classification cloud service for research on black-box attacks.</p>
+
+                    <aside class="notes">
+                        The cloud API we attack is DeepAPI, an image classification cloud service we open-source for research on black-box attacks.
+                    </aside>
+                </section>
+
+                <section data-background-video="images/deepapi.mp4" data-background-video-muted data-menu-title="Demo: DeepAPI">
+                    <aside class="notes">
+                        Here's a quick demo. We can upload images to the cloud server, and receive the classification results.<br />
+                        <br />
+                        Besides uploading images from the website, we can also use the API to do image classification so that we can automate the query process to initiate black-box attacks. <br />
+                        <br />
+                    </aside>
+                </section>
+
+                <section>
+                    <h3 style="margin: 0;">DeepAPI Deployment</h3>
+                    <br />
+                    <p style="margin-top: 0;">Using Docker</p>
+                    <pre data-id="code">
+                        <code class="bash" data-trim data-line-numbers>
+                            $ docker run -p 8080:8080 wuhanstudio/deepapi
+                            Serving on port 8080...
+                        </code>
+                    </pre>
+                    <p>Using Pip</p>
+                    <pre data-id="code">
+                        <code class="bash" data-trim data-line-numbers>
+                            $ pip install deepapi
+
+                            $ python -m deepapi
+                            Serving on port 8080...
+                        </code>
+                    </pre>
+
+                    <aside class="notes">
+                        To make the deployment of DeepAPI easier, we provide a Docker image as well as a python package which can be installed via pip install deepapi, and start the server using a single command. <br />
+                        <br/>
+                        Furthermore, we design two general frameworks, horizontal and vertical distribution, that can be applied to existing black-box attacks to reduce the total attack time. (5 min)
                     </aside>
                 </section>
 
@@ -344,52 +395,6 @@
                         Our experimental results demonstrate that attacking Cloud APIs is more challenging than attacking local models. For local search and gradient estimation methods, attacking cloud APIs achieve less success rate than attacking local models. In our experiments, we limit the number of queries for each image to be at most 1,000, which is quite challenging. As a result, the baseline method only achieves a success rate of roughly 5%. <br />
                         <br />
                         Besides, attacking cloud APIs requires more queries than attacking local models. For the baseline method, we do not see an evident incrase because the attack success rate is relatively low. Most attacks consume all of the query budget. 
-                    </aside>
-                </section>
-
-                <section>
-                    <span class="menu-title" style="display: none">DeepAPI</span>
-                    <h3>DeepAPI - The Cloud API we attack</h3>
-                    <p style="font-size: 26px;">We open-source our image classification cloud service for research on black-box attacks.</p>
-
-                    <aside class="notes">
-                        The cloud API we attack is DeepAPI, an image classification cloud service we open-source for research on black-box attacks.
-                    </aside>
-                </section>
-
-                <section data-background-video="images/deepapi.mp4" data-background-video-muted data-menu-title="Demo: DeepAPI">
-                    <aside class="notes">
-                        Here's a quick demo. We can upload images to the cloud server, and receive the classification results.<br />
-                        <br />
-                        Besides uploading images from the website, we can also use the API to do image classification so that we can automate the query process to initiate black-box attacks. <br />
-                        <br />
-                    </aside>
-                </section>
-
-                <section>
-                    <h3 style="margin: 0;">DeepAPI Deployment</h3>
-                    <br />
-                    <p style="margin-top: 0;">Using Docker</p>
-                    <pre data-id="code">
-                        <code class="bash" data-trim data-line-numbers>
-                            $ docker run -p 8080:8080 wuhanstudio/deepapi
-                            Serving on port 8080...
-                        </code>
-                    </pre>
-                    <p>Using Pip</p>
-                    <pre data-id="code">
-                        <code class="bash" data-trim data-line-numbers>
-                            $ pip install deepapi
-
-                            $ python -m deepapi
-                            Serving on port 8080...
-                        </code>
-                    </pre>
-
-                    <aside class="notes">
-                        To make the deployment of DeepAPI easier, we provide a Docker image as well as a python package which can be installed via pip install deepapi, and start the server using a single command. <br />
-                        <br/>
-                        Furthermore, we design two general frameworks, horizontal and vertical distribution, that can be applied to existing black-box attacks to reduce the total attack time. (5 min)
                     </aside>
                 </section>
 
@@ -467,7 +472,7 @@
                     </aside>
                 </section>
 
-                <section>
+                <section data-menu-title="Project 4: The Main-in-the-Middle Attack">
                     <h3>The Man-in-the-Middle Attack</h3>
                     <p class="" data-fragment-index="1" style="color: blue; font-size: 20px;">A Hardware Attack against Object Detection  &nbsp; <a href="https://arxiv.org/abs/2208.07174"><i class="far fa-file-pdf"></i></a></p>
                     <div class="r-vstack">
@@ -475,7 +480,6 @@
                     </div>
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://github.com/wuhanstudio/adversarial-camera">Source Code</a></p>
                     <aside class="notes">
-                        Here's the research question. Is Deep Learning secure for IoT? Please be aware, we talk about deep learning security, rather than Cryptography. We attack deep neural networks.
                     </aside>
                 </section>
 
@@ -516,6 +520,11 @@
                         <img src="images/pcb-specific.png" alt="" srcset="" style="margin-right: 20px;">
                         <img src="images/pcb-agnostic.png" alt="" srcset="">
                     </div>
+                    <aside class="notes">
+                        In the first step, we generate a single Universal Adversarial Perturbation to fool all the images from the camera. Our method generates more bounding boxes and has less variation. <br />
+                        <br />
+                        Prior research used the Mean Accuracy Precision to measure adversarial attacks, but it actually measures the accuracy of the model rather than the strength of the attack. Thus we propose three evaluation metrics to measure the strength of the attack, and we achieve a stronger attack after applying the learning rate decay.
+                    </aside>
                 </section>
 
                 <section data-menu-title="Step 1: Generating the Perturbation">
@@ -681,7 +690,7 @@
                         }
                     ]
                 },
-                // showNotes: true,
+                showNotes: true,
             });
         </script>
     </body>
