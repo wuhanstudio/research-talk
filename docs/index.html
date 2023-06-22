@@ -32,7 +32,7 @@
                     <span class="menu-title" style="display: none">Overview</span>
                     <h3 class="r-fit-text">Is Deep Learning Secure for Robots?</h3>
                     <!-- <p class="name" style="font-size: 25px;">RT-Thread 对接 ROS 和机器学习云服务</p> -->
-                    <p class="name" style="font-size: 20px;">Han Wu, University of Exeter</p>
+                    <p class="name" style="font-size: 20px;">Han Wu, Johan Wahlström and Sareh Rowlands, University of Exeter</p>
                     <div class="r-hstack">
                         <div>
                               <img align="center" width=20% src="images/driving.png" />
@@ -44,6 +44,13 @@
                     <p style="font-size: 22px;"><i class="fab fa-github"></i> &nbsp; <a href="https://wuhanstudio.uk">Source Code</a></p>
 
                     <aside class="notes">
+                        Hi, I'm Han Wu, a third-year Ph.D. student in Computer Science. Here's my resarch question: Is Deep Learning Secure for Robots?
+                        <br /><br />
+                        It is no more a secret that deep learning models are vulnerable to adversarial attacks. We can attack deep learning models by adding human unperceivable perturbations to the input image.
+                        <br /><br />
+                        We can attack the end-to-end driving model, the object detection model, the image classification cloud service, and embedded systems.
+                        <br /><br />
+                        These are the four projects that I would like to introduce today. Let's move on to the first project.
                     </aside>
                 </section>
 
@@ -66,6 +73,35 @@
                         <li style="font-size: 20px;">Almost all the top 10 teams on the leaderboard use end-to-end driving models.</li>
                         <li style="font-size: 20px;" class="fragment">End-to-End driving models lead to smaller systems and better performance.</li>
                     </ul>
+                    <aside class="notes">
+                        For autonomous driving, end-to-end driving models are getting more popular. For example, almost all the top 10 teams in the CARLA autonomous driving challenge use end-to-end driving models.
+                        <br /><br />
+                        The End-to-End driving model means the model takes the sensor data, such as camera, liar, as input, and directly outputs driving commands, such as the steering angle and acceleration. Since we have only one end-to-end model, it leads to smaller systems and better performance.
+                    </aside>
+                </section>
+
+                <section>
+                    <span class="menu-title" style="display: none">The End-to-End Driving</span>
+                    <p></p>
+                    <h5>Adversarial Attacks against End-to-End Driving</h5>
+                    <div class="r-vstack">
+                        <div class="r-hstack">
+                            <video  autoplay muted loop width="40%">
+                                <source data-src="images/nvidia.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                            <img src="images/model.png" width="40%" style="margin-left: 20px;" alt="">
+                        </div>
+                        <p style="font-size: 20px; margin-top: 0;"> The NVIDIA End-to-End Driving Model</p>
+                        <img src="images/overview.png" width="60%" class="fragment" alt="" />
+                    </div>
+                    <aside class="notes">
+                        Researchers from NVIDIA even tested their end-to-end driving models on a real autonomous driving car.
+                        <br /><br />
+                        But are we ready to embrace end-to-end driving models in a safety-critical application? Proir research demonstrated image classification models that use deep neural networks are vulnerable to adversarial attack, while the driving model is a regression model. 
+                        <br /><br />
+                        In our research, we have demonstrated that it is possible to attack the end-to-end regressional driving model as well in real time.
+                    </aside>
                 </section>
 
                 <section>
@@ -88,28 +124,6 @@
                     </aside>
                 </section>
 
-                <section>
-                    <span class="menu-title" style="display: none">The End-to-End Driving</span>
-                    <p></p>
-                    <h5>Adversarial Attacks against End-to-End Driving</h5>
-                    <div class="r-vstack">
-                        <div class="r-hstack">
-                            <video  autoplay muted loop width="40%">
-                                <source data-src="images/nvidia.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <img src="images/model.png" width="40%" style="margin-left: 20px;" alt="">
-                        </div>
-                        <p style="font-size: 20px; margin-top: 0;"> The NVIDIA End-to-End Driving Model</p>
-                        <img src="images/overview.png" width="60%" class="fragment" alt="" />
-                    </div>
-                    <aside class="notes">
-                        Researchers from NVIDIA even tested their end-to-end driving models on a real autonomous driving car.
-
-                        But are we ready to embrace end-to-end driving models in a safety-critical application? Proir research demonstrated image classification models that use deep neural networks are vulnerable to adversarial attack.</p> while the driving model is a regression model. In our research, we have demonstrated that it is possible to attack the end-to-end regressional driving model as well in real time.
-                </section>
-
-                    </aside>
                 </section>
 
                 <section>
